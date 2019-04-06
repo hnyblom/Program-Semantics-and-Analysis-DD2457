@@ -31,23 +31,40 @@ public class CompileVisitor implements WhileVisitor {
     }
     
     public Code visit(Conditional conditional) {
-        return null;
+        Code c = new Code();
+        c.addAll(conditional.b.accept(this));
+        c.add(new Branch(conditional.s1.accept(this),conditional.s2.accept(this)));
+        return c;
     }
     
     public Code visit(Equals equals) {
-        return null;
+        Code c = new Code();
+        c.addAll(equals.a2.accept(this));
+        c.addAll(equals.a1.accept(this));
+        c.add(new Eq());
+        return c;
     }
 
     public Code visit(FalseConst f) {
-        return null;
+        Code c = new Code();
+        c.addAll(f.accept(this));
+        return c;
     }
 
     public Code visit(LessThanEq lessthaneq) {
-        return null;
+        Code c = new Code();
+        c.addAll(lessthaneq.a2.accept(this));
+        c.addAll(lessthaneq.a1.accept(this));
+        c.add(new Le());
+        return c;
     }
 
     public Code visit(Minus minus) {
-        return null;
+        Code c = new Code();
+        c.addAll(minus.a2.accept(this));
+        c.addAll(minus.a1.accept(this));
+        c.add(new Sub());
+        return c;
     }
 
     public Code visit(Num num) {
@@ -65,15 +82,23 @@ public class CompileVisitor implements WhileVisitor {
     }
 
     public Code visit(Skip skip) {
-        return null;
+        Code c = new Code();
+        c.add(new Noop());
+        return c;
     }
 
     public Code visit(Times times) {
-        return null;
+        Code c = new Code();
+        c.addAll(times.a2.accept(this));
+        c.addAll(times.a1.accept(this));
+        c.add(new Mult());
+        return c;
     }
     
     public Code visit(TrueConst t) {
-        return null;
+        Code c = new Code();
+        c.add(new True());
+        return c;
     }
 
     public Code visit(Var var) {
@@ -83,7 +108,9 @@ public class CompileVisitor implements WhileVisitor {
     }
 
     public Code visit(While whyle) {
-        return null;
+        Code c = new Code();
+        c.add(new Loop(whyle.b.accept(this),whyle.s.accept(this)));
+        return c;
     }
     
     public Code visit(TryCatch trycatch) {
