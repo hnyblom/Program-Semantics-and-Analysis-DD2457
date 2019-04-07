@@ -114,7 +114,9 @@ public class CompileVisitor implements WhileVisitor {
     }
     
     public Code visit(TryCatch trycatch) {
-        return null;
+        Code c = new Code();
+        c.add(new Try(trycatch.s1.accept(this),trycatch.s2.accept(this)));
+        return c;
     }
     
     public Code visit(Divide div) {
@@ -122,6 +124,6 @@ public class CompileVisitor implements WhileVisitor {
         c.addAll(div.a1.accept(this));
         c.addAll(div.a2.accept(this));
         c.add(new Div());
-        return null;
+        return c;
     }
 }

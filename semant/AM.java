@@ -10,7 +10,6 @@ public class AM {
     static HashMap<String, String> state = new HashMap<>();
     static Stack<String> sstack = new Stack<>();
     static int j = 0;
-    static Boolean loop = false;
     public static void execute(Code c){
         whileLoop:
         while(j<c.size()){
@@ -45,6 +44,7 @@ public class AM {
                     j++;
                 break;
                 case MULT:
+                    int testindex = c.indexOf(i);
                     val = sstack.pop();
                     val2 = sstack.pop();
                     val3 = Integer.parseInt(val)*Integer.parseInt(val2);
@@ -106,11 +106,6 @@ public class AM {
                     j++;
                 break;
                 case NOOP:
-                    /*if(loop){ //TODO: Check instead if the loop-inst is the correct number of steps from noop.
-                        break whileLoop;
-                    }else{
-                        j++;
-                    }*/
                     j++;
                 break;
                 case BRANCH:
@@ -150,25 +145,71 @@ public class AM {
                     newc.add(new Branch(newc2, noop));
 
                     Code sub = new Code();
-                    int test = c.indexOf(i)+1;
                     for(int j = c.indexOf(i)+1;j<c.size(); j++){
                         sub.add(c.get(j));
                     }
 
                     newc.addAll(sub);
                     c = newc;
-                    loop = true;
                     j=0;
                 break;
                 case DIV:
+                    testindex = c.indexOf(i);
+                    if(sstack.size()==1){
+                        int nothing = 0;
+                    }
                     val = sstack.pop();
                     val2 = sstack.pop();
-                    if(val2.equals(Integer.toString(0))){
+                    if(val.equals(Integer.toString(0))){
                         sstack.push("error");
+                        //Skip the code until the next Catch-statement
+                        for(int k = c.indexOf(i); k<c.size();k++){
+                            if(c.get(k).opcode.equals(Inst.Opcode.CATCH)){
+                                j = (k-1);
+                                break;
+                            }
+                        }
                     }else{
-                        val3 = Integer.parseInt(val)/Integer.parseInt(val2);
+                        val3 = Integer.parseInt(val2)/Integer.parseInt(val);
                         sstack.push(Integer.toString(val3));
                     }
+                    j++;
+                break;
+                case TRY:
+                    Try t = (Try)i;
+                    newc = new Code();
+                    noop = new Code();
+                    noop.add(new Noop());
+                    newc.addAll(t.c1);
+                    newc.add(new Catch(t.c2, noop));
+                    sub = new Code();
+                    for(int j = c.indexOf(i)+1;j<c.size(); j++){
+                        sub.add(c.get(j));
+                    }
+                    newc.addAll(sub);
+                    c = newc;
+                    j=0;
+                break;
+                case CATCH:
+                    Catch ca = (Catch)i;
+                    newc = new Code();
+                    if(sstack.empty()){
+                        newc.addAll(ca.c2);
+                    }else{
+                        val = sstack.pop();
+                        if(val.equals("error")){
+                            newc.addAll(ca.c1);
+                        }else{
+                            newc.addAll(ca.c2);
+                        }
+                    }
+                    sub = new Code();
+                    for(int j = c.indexOf(i)+1;j<c.size(); j++){
+                        sub.add(c.get(j));
+                    }
+                    newc.addAll(sub);
+                    c = newc;
+                    j=0;
                 break;
             }
         }
