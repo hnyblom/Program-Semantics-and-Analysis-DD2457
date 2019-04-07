@@ -1,6 +1,7 @@
 package semant;
 
 import semant.amsyntax.*;
+import semant.whilesyntax.Divide;
 
 import java.util.HashMap;
 import java.util.Stack;
@@ -105,11 +106,12 @@ public class AM {
                     j++;
                 break;
                 case NOOP:
-                    if(loop){ //TODO: Check instead if the loop-inst is the correct number of steps from noop.
+                    /*if(loop){ //TODO: Check instead if the loop-inst is the correct number of steps from noop.
                         break whileLoop;
                     }else{
                         j++;
-                    }
+                    }*/
+                    j++;
                 break;
                 case BRANCH:
                     Branch b = (Branch)i;
@@ -157,6 +159,16 @@ public class AM {
                     c = newc;
                     loop = true;
                     j=0;
+                break;
+                case DIV:
+                    val = sstack.pop();
+                    val2 = sstack.pop();
+                    if(val2.equals(Integer.toString(0))){
+                        sstack.push("error");
+                    }else{
+                        val3 = Integer.parseInt(val)/Integer.parseInt(val2);
+                        sstack.push(Integer.toString(val3));
+                    }
                 break;
             }
         }
