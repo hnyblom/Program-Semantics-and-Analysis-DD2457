@@ -1,0 +1,10 @@
+# Should terminate with x=5
+x := 1; 
+try
+    x := 1 / 0;
+    try
+        x := 3
+    catch
+        x := 4
+catch
+    x := 2
