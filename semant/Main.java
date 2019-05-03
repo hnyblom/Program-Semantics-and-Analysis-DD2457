@@ -16,8 +16,9 @@ public class Main {
         for (Inst i:c) {
             System.err.println(i);
         }
-
-        AM.execute(c);
+        //System.out.println("code: "+c);
+        AMAbs am = new AMAbs();
+        am.execute(c);
         // TODO:
         // - Compile s into AM Code
         // - Execute resulting AM Code using a step-function.
