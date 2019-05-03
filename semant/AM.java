@@ -38,10 +38,14 @@ public class AM {
                     System.out.println("\u2329"+c.subList(j,c.size()).toString()+","+sstack.toString()+","+stateStr+stateCount+state.toString()+"\u232a");
                     new BufferedReader((new InputStreamReader(System.in))).readLine();
                     if(!exceptional){
-                        Store s = (Store)i;
                         val = sstack.pop();
-                        state.put(s.x,val);
-                        stateCount += "´";
+                        Store s = (Store)i;
+                        if(!val.equals("error")){
+                            state.put(s.x,val);
+                            stateCount += "´";
+                        }else{
+                            exceptional=true;
+                        }
                     }
                     j++;
                 break;
@@ -61,8 +65,17 @@ public class AM {
                     if(!exceptional){
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        val3 = Integer.parseInt(val) + Integer.parseInt(val2);
-                        sstack.push(Integer.toString(val3));
+                        if(!val.equals("error")&!val2.equals("error")) {
+                            val3 = Integer.parseInt(val) + Integer.parseInt(val2);
+                            sstack.push(Integer.toString(val3));
+                        }else{
+                            sstack.push("error");
+                            exceptional=true;
+                        }
+                    }else if(sstack.size()==2){
+                        sstack.pop();
+                        sstack.pop();
+                        sstack.push("error");
                     }
                     j++;
                 break;
@@ -72,8 +85,17 @@ public class AM {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        val3 = Integer.parseInt(val) * Integer.parseInt(val2);
-                        sstack.push(Integer.toString(val3));
+                        if(!val.equals("error")&!val2.equals("error")) {
+                            val3 = Integer.parseInt(val) * Integer.parseInt(val2);
+                            sstack.push(Integer.toString(val3));
+                        }else{
+                            sstack.push("error");
+                            exceptional=true;
+                        }
+                    }else if(sstack.size()==2){
+                        sstack.pop();
+                        sstack.pop();
+                        sstack.push("error");
                     }
                     j++;
                 break;
@@ -83,8 +105,17 @@ public class AM {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        val3 = Integer.parseInt(val) - Integer.parseInt(val2);
-                        sstack.push(Integer.toString(val3));
+                        if(!val.equals("error")&!val2.equals("error")) {
+                            val3 = Integer.parseInt(val) - Integer.parseInt(val2);
+                            sstack.push(Integer.toString(val3));
+                        }else {
+                            sstack.push("error");
+                            exceptional=true;
+                        }
+                    }else if(sstack.size()==2){
+                        sstack.pop();
+                        sstack.pop();
+                        sstack.push("error");
                     }
                     j++;
                 break;
@@ -110,11 +141,20 @@ public class AM {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if (Integer.parseInt(val) == Integer.parseInt(val2)) {
-                            sstack.push("tt");
-                        } else {
-                            sstack.push("ff");
+                        if(!val.equals("error")&!val2.equals("error")) {
+                            if (Integer.parseInt(val) == Integer.parseInt(val2)) {
+                                sstack.push("tt");
+                            } else {
+                                sstack.push("ff");
+                            }
+                        }else{
+                            sstack.push("error");
+                            exceptional=true;
                         }
+                    }else if(sstack.size()==2){
+                        sstack.pop();
+                        sstack.pop();
+                        sstack.push("error");
                     }
                     j++;
                 break;
@@ -124,11 +164,20 @@ public class AM {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if (Integer.parseInt(val) <= Integer.parseInt(val2)) {
-                            sstack.push("tt");
-                        } else {
-                            sstack.push("ff");
+                        if(!val.equals("error")&!val2.equals("error")) {
+                            if (Integer.parseInt(val) <= Integer.parseInt(val2)) {
+                                sstack.push("tt");
+                            } else {
+                                sstack.push("ff");
+                            }
+                        }else{
+                            sstack.push("error");
+                            exceptional = true;
                         }
+                    }else if(sstack.size()==2){
+                        sstack.pop();
+                        sstack.pop();
+                        sstack.push("error");
                     }
                     j++;
                 break;
@@ -138,11 +187,20 @@ public class AM {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if (val.equals("tt") && val2.equals("tt")) {
-                            sstack.push("tt");
-                        } else {
-                            sstack.push("ff");
+                        if(!val.equals("error")&!val2.equals("error")) {
+                            if (val.equals("tt") && val2.equals("tt")) {
+                                sstack.push("tt");
+                            } else {
+                                sstack.push("ff");
+                            }
+                        }else{
+                            sstack.push("error");
+                            exceptional = true;
                         }
+                    }else if(sstack.size()==2){
+                        sstack.pop();
+                        sstack.pop();
+                        sstack.push("error");
                     }
                     j++;
                 break;
@@ -153,8 +211,11 @@ public class AM {
                         val = sstack.pop();
                         if (val.equals("tt")) {
                             sstack.push("ff");
-                        } else {
+                        } else if(val.equals("ff")){
                             sstack.push("tt");
+                        }else if(val.equals("error")){
+                            sstack.push("error");
+                            exceptional = true;
                         }
                     }
                     j++;
@@ -179,7 +240,8 @@ public class AM {
                             }
                             newc.addAll(sub);
                             c = newc;
-                        } else {
+                            j = 0;
+                        } else if(val.equals("ff")){
                             newc.addAll(b.c2);
                             Code sub = new Code();
                             for (int j = c.indexOf(i) + 1; j < c.size(); j++) {
@@ -187,8 +249,12 @@ public class AM {
                             }
                             newc.addAll(sub);
                             c = newc;
+                            j = 0;
+                        }else if(val.equals("error")){
+                            sstack.push("error");
+                            exceptional = true;
+                            j++;
                         }
-                        j = 0;
                     }else{
                         j++;
                     }
@@ -230,21 +296,23 @@ public class AM {
                         }
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if (val.equals(Integer.toString(0))) {
+                        if(!val.equals("error")&!val2.equals("error")) {
+                            if (val.equals(Integer.toString(0))) {
+                                sstack.push("error");
+                                exceptional = true;
+                                stateStr = "\u015D";
+                            } else {
+                                val3 = Integer.parseInt(val2) / Integer.parseInt(val);
+                                sstack.push(Integer.toString(val3));
+                            }
+                        }else{
                             sstack.push("error");
                             exceptional = true;
-                            stateStr = "\u015D";
-                            //Skip the code until the next Catch-statement
-                        /*for(int k = c.indexOf(i); k<c.size();k++){
-                            if(c.get(k).opcode.equals(Inst.Opcode.CATCH)){
-                                j = (k-1);
-                                break;
-                            }
-                        }*/
-                        } else {
-                            val3 = Integer.parseInt(val2) / Integer.parseInt(val);
-                            sstack.push(Integer.toString(val3));
                         }
+                    }else if(sstack.size()==2){
+                        sstack.pop();
+                        sstack.pop();
+                        sstack.push("error");
                     }
                     j++;
                 break;
