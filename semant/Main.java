@@ -2,6 +2,7 @@ package semant;
 
 import semant.amsyntax.Code;
 import semant.amsyntax.Inst;
+import semant.signexc.SignExc;
 import semant.whilesyntax.Compound;
 import semant.whilesyntax.Stm;
 

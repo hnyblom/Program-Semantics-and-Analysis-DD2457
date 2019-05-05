@@ -15,6 +15,8 @@ import semant.whilesyntax.*;
   */
 public class WhileParser extends java_cup.runtime.lr_parser {
 
+    static int contPoint = 0;
+
   /** Default constructor. */
   public WhileParser() {super();}
 

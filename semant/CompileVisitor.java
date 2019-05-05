@@ -4,9 +4,12 @@ import semant.amsyntax.*;
 import semant.whilesyntax.*;
 
 public class CompileVisitor implements WhileVisitor {
+    public int cPoint = 0;
     
     public Code visit(Compound compound) {
         Code c = new Code();
+        compound.s1.controlPoint = setAndInc();
+        compound.s2.controlPoint = setAndInc();
         c.addAll(compound.s1.accept(this));
         c.addAll(compound.s2.accept(this));
         return c;
@@ -125,5 +128,10 @@ public class CompileVisitor implements WhileVisitor {
         c.addAll(div.a2.accept(this));
         c.add(new Div());
         return c;
+    }
+
+    public int setAndInc(){
+        cPoint++;
+        return cPoint-1;
     }
 }

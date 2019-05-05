@@ -2,6 +2,7 @@ package semant.amsyntax;
 
 
 public abstract class Inst {
+    int stmControlPoint;
     
     public enum Opcode { ADD, AND, BRANCH, EQ, FALSE, FETCH, LE,
         LOOP, MULT, NEG, NOOP, PUSH, STORE, SUB, TRUE, DIV, TRY, CATCH

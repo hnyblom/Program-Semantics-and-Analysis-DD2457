@@ -13,20 +13,25 @@ import java.util.HashMap;
 import java.util.Stack;
 
 public class AMAbs {
-    private HashMap<String, SignExc> state = new HashMap<>();
-    private Stack<SignExc> sstack = new Stack<>();
+    private HashMap<String, String> state = new HashMap<>();
+    private Stack<String> sstack = new Stack<>();
     private int j = 0;
     private boolean exceptional = false;
     private String stateStr = "s";
     private String stateCount = "";
+    private SignExcOps sOps = new SignExcOps();
     public void execute(Code c) throws IOException {
         whileLoop:
         while(j<c.size()){
             Inst i = c.get(j);
             Inst.Opcode op = i.opcode;
-            SignExc val = SignExc.NONE_A;
-            SignExc val2 = SignExc.NONE_A;
-            SignExc val3 = SignExc.NONE_A;
+            String val = "";
+            String val2 = "";
+            String val3 = "";
+            SignExc signVal1 = SignExc.ANY_A;
+            SignExc signVal2 = SignExc.ANY_A;
+            TTExc ttVal = TTExc.ANY_B;
+            boolean b = false;
             switch (op){
                 case PUSH:
                     System.out.println("\u2329"+c.subList(j,c.size()).toString()+","+sstack.toString()+","+stateStr+stateCount+state.toString()+"\u232a");
@@ -34,7 +39,7 @@ public class AMAbs {
                     if(!exceptional){
                         Push p = (Push)i;
                         SignExc sign = abstraction(Integer.parseInt(p.n));
-                        sstack.push(sign);
+                        sstack.push(sign.toString());
                     }
                     j++;
                 break;
@@ -43,9 +48,19 @@ public class AMAbs {
                     new BufferedReader((new InputStreamReader(System.in))).readLine();
                     if(!exceptional){
                         val = sstack.pop();
+                        b = boolSign(val);
+                        if(b){
+                            ttVal = tt(val);
+                        }else{
+                            signVal1 = sign(val);
+                        }
                         Store s = (Store)i;
-                        if(!SignExcOps.eq(val, SignExc.ERR_A)){
-                            state.put(s.x,val);
+                        if(signVal1 != SignExc.ERR_A){
+                            if(b){
+                                state.put(s.x,ttVal.toString());
+                            }else{
+                                state.put(s.x,signVal1.toString());
+                            }
                             stateCount += "´";
                         }else{
                             exceptional=true;
@@ -69,17 +84,17 @@ public class AMAbs {
                     if(!exceptional){
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if(!SignExcOps.eq(val,SignExc.ERR_A) && !SignExcOps.eq(val2,SignExc.ERR_A)) {
-                            val3 = SignExcOps.add(val, val2);
+                        if((sign(val)!=SignExc.ERR_A) && (sign(val2)!=SignExc.ERR_A)) {
+                            val3 = sOps.add(sign(val), sign(val2)).toString();
                             sstack.push(val3);
                         }else{
-                            sstack.push(SignExc.ERR_A);
+                            sstack.push(SignExc.ERR_A.toString());
                             exceptional=true;
                         }
                     }else if(sstack.size()==2){
                         sstack.pop();
                         sstack.pop();
-                        sstack.push(SignExc.ERR_A);
+                        sstack.push(SignExc.ERR_A.toString());
                     }
                     j++;
                 break;
@@ -89,17 +104,17 @@ public class AMAbs {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if(!SignExcOps.eq(val,SignExc.ERR_A) && !SignExcOps.eq(val2,SignExc.ERR_A)) {
-                            val3 = SignExcOps.multiply(val, val2);
+                        if((sign(val)!=SignExc.ERR_A) && (sign(val2)!=SignExc.ERR_A)) {
+                            val3 = sOps.multiply(sign(val), sign(val2)).toString();
                             sstack.push(val3);
                         }else{
-                            sstack.push(SignExc.ERR_A);
+                            sstack.push(SignExc.ERR_A.toString());
                             exceptional=true;
                         }
                     }else if(sstack.size()==2){
                         sstack.pop();
                         sstack.pop();
-                        sstack.push(SignExc.ERR_A);
+                        sstack.push(SignExc.ERR_A.toString());
                     }
                     j++;
                 break;
@@ -109,17 +124,17 @@ public class AMAbs {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if(!SignExcOps.eq(val,SignExc.ERR_A) && !SignExcOps.eq(val2,SignExc.ERR_A)) {
-                            val3 = SignExcOps.subtract(val, val2);
+                        if((sign(val)!=SignExc.ERR_A) && (sign(val2)!=SignExc.ERR_A)) {
+                            val3 = sOps.subtract(sign(val), sign(val2)).toString();
                             sstack.push(val3);
                         }else {
-                            sstack.push(SignExc.ERR_A);
+                            sstack.push(SignExc.ERR_A.toString());
                             exceptional=true;
                         }
                     }else if(sstack.size()==2){
                         sstack.pop();
                         sstack.pop();
-                        sstack.push(SignExc.ERR_A);
+                        sstack.push(SignExc.ERR_A.toString());
                     }
                     j++;
                 break;
@@ -127,7 +142,7 @@ public class AMAbs {
                     System.out.println("\u2329"+c.subList(j,c.size()).toString()+","+sstack.toString()+","+stateStr+stateCount+state.toString()+"\u232a");
                     new BufferedReader((new InputStreamReader(System.in))).readLine();
                     if(!exceptional) {
-                        sstack.push(TTExc.TT);
+                        sstack.push(TTExc.TT.toString());
                     }
                     j++;
                 break;
@@ -135,7 +150,7 @@ public class AMAbs {
                     System.out.println("\u2329"+c.subList(j,c.size()).toString()+","+sstack.toString()+","+stateStr+stateCount+state.toString()+"\u232a");
                     new BufferedReader((new InputStreamReader(System.in))).readLine();
                     if(!exceptional) {
-                        sstack.push("ff");
+                        sstack.push(TTExc.FF.toString());
                     }
                     j++;
                 break;
@@ -145,20 +160,17 @@ public class AMAbs {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if(!val.equals("error")&!val2.equals("error")) {
-                            if (Integer.parseInt(val) == Integer.parseInt(val2)) {
-                                sstack.push("tt");
-                            } else {
-                                sstack.push("ff");
-                            }
+                        if((sign(val)!=SignExc.ERR_A) && (sign(val2)!=SignExc.ERR_A)) {
+                            val3 = sOps.eq(sign(val), sign(val2)).toString();
+                            sstack.push(val3);
                         }else{
-                            sstack.push("error");
+                            sstack.push(SignExc.ERR_A.toString());
                             exceptional=true;
                         }
                     }else if(sstack.size()==2){
                         sstack.pop();
                         sstack.pop();
-                        sstack.push("error");
+                        sstack.push(SignExc.ERR_A.toString());
                     }
                     j++;
                 break;
@@ -168,20 +180,17 @@ public class AMAbs {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if(!val.equals("error")&!val2.equals("error")) {
-                            if (Integer.parseInt(val) <= Integer.parseInt(val2)) {
-                                sstack.push("tt");
-                            } else {
-                                sstack.push("ff");
-                            }
+                        if((sign(val)!=SignExc.ERR_A) && (sign(val2)!=SignExc.ERR_A)) {
+                            val3 = sOps.leq(sign(val), sign(val2)).toString();
+                            sstack.push(val3);
                         }else{
-                            sstack.push("error");
+                            sstack.push(SignExc.ERR_A.toString());
                             exceptional = true;
                         }
                     }else if(sstack.size()==2){
                         sstack.pop();
                         sstack.pop();
-                        sstack.push("error");
+                        sstack.push(SignExc.ERR_A.toString());
                     }
                     j++;
                 break;
@@ -191,20 +200,17 @@ public class AMAbs {
                     if(!exceptional) {
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if(!val.equals("error")&!val2.equals("error")) {
-                            if (val.equals("tt") && val2.equals("tt")) {
-                                sstack.push("tt");
-                            } else {
-                                sstack.push("ff");
-                            }
+                        if((sign(val)!=SignExc.ERR_A) && (sign(val2)!=SignExc.ERR_A)) {
+                            val3 = sOps.and(tt(val), tt(val2)).toString();
+                            sstack.push(val3);
                         }else{
-                            sstack.push("error");
+                            sstack.push(SignExc.ERR_A.toString());
                             exceptional = true;
                         }
                     }else if(sstack.size()==2){
                         sstack.pop();
                         sstack.pop();
-                        sstack.push("error");
+                        sstack.push(SignExc.ERR_A.toString());
                     }
                     j++;
                 break;
@@ -213,12 +219,13 @@ public class AMAbs {
                     new BufferedReader((new InputStreamReader(System.in))).readLine();
                     if(!exceptional) {
                         val = sstack.pop();
-                        if (val.equals("tt")) {
-                            sstack.push("ff");
-                        } else if(val.equals("ff")){
-                            sstack.push("tt");
-                        }else if(val.equals("error")){
-                            sstack.push("error");
+
+                        if (tt(val) == TTExc.TT) {
+                            sstack.push(TTExc.FF.toString());
+                        } else if(tt(val) == TTExc.FF){
+                            sstack.push(TTExc.TT.toString());
+                        }else if(tt(val)==TTExc.ERR_B){
+                            sstack.push(TTExc.ERR_B.toString());
                             exceptional = true;
                         }
                     }
@@ -233,11 +240,11 @@ public class AMAbs {
                     System.out.println("\u2329"+c.subList(j,c.size()).toString()+","+sstack.toString()+","+stateStr+stateCount+state.toString()+"\u232a");
                     new BufferedReader((new InputStreamReader(System.in))).readLine();
                     if(!exceptional) {
-                        Branch b = (Branch) i;
+                        Branch br = (Branch) i;
                         Code newc = new Code();
                         val = sstack.pop();
-                        if (val.equals("tt")) {
-                            newc.addAll(b.c1);
+                        if (tt(val)==TTExc.TT) {
+                            newc.addAll(br.c1);
                             Code sub = new Code();
                             for (int j = c.indexOf(i) + 1; j < c.size(); j++) {
                                 sub.add(c.get(j));
@@ -245,8 +252,8 @@ public class AMAbs {
                             newc.addAll(sub);
                             c = newc;
                             j = 0;
-                        } else if(val.equals("ff")){
-                            newc.addAll(b.c2);
+                        } else if(tt(val)==TTExc.FF){
+                            newc.addAll(br.c2);
                             Code sub = new Code();
                             for (int j = c.indexOf(i) + 1; j < c.size(); j++) {
                                 sub.add(c.get(j));
@@ -254,8 +261,8 @@ public class AMAbs {
                             newc.addAll(sub);
                             c = newc;
                             j = 0;
-                        }else if(val.equals("error")){
-                            sstack.push("error");
+                        }else if(tt(val)==TTExc.ERR_B){
+                            sstack.push(TTExc.ERR_B.toString());
                             exceptional = true;
                             j++;
                         }
@@ -300,23 +307,23 @@ public class AMAbs {
                         }
                         val = sstack.pop();
                         val2 = sstack.pop();
-                        if(!val.equals("error")&!val2.equals("error")) {
+                        if((sign(val)!=SignExc.ERR_A) && (sign(val2)!=SignExc.ERR_A)) {
                             if (val.equals(Integer.toString(0))) {
-                                sstack.push("error");
+                                sstack.push(SignExc.ERR_A.toString());
                                 exceptional = true;
                                 stateStr = "\u015D";
                             } else {
-                                val3 = Integer.parseInt(val2) / Integer.parseInt(val);
-                                sstack.push(Integer.toString(val3));
+                                val3 = sOps.divide(sign(val2),sign(val)).toString();
+                                sstack.push(val3);
                             }
                         }else{
-                            sstack.push("error");
+                            sstack.push(SignExc.ERR_A.toString());
                             exceptional = true;
                         }
                     }else if(sstack.size()==2){
                         sstack.pop();
                         sstack.pop();
-                        sstack.push("error");
+                        sstack.push(SignExc.ERR_A.toString());
                     }
                     j++;
                 break;
@@ -350,7 +357,7 @@ public class AMAbs {
                         newc.addAll(ca.c2);
                     }else{
                         val = sstack.pop();
-                        if(val.equals("error")){
+                        if(sign(val)==SignExc.ERR_A||tt(val)==TTExc.ERR_B){
                             exceptional = false;
                             stateStr = "s";
                             newc.addAll(ca.c1);
@@ -391,5 +398,76 @@ public class AMAbs {
         }else{
             return TTExc.FF;
         }
+    }
+    public boolean boolSign(String s){
+        boolean tt = false;
+        if(s.equals("NONE_B")||s.equals("TT")||s.equals("FF")||s.equals("ERR_B")||s.equals("T")||s.equals("ANY_B")){
+            tt = true;
+        }
+        return tt;
+    }
+
+    public SignExc sign(String s){
+        SignExc si = SignExc.NONE_A;
+        switch(s){
+            //NONE_A, NEG, ZERO, POS, ERR_A, NON_POS, NON_ZERO, NON_NEG, Z, ANY_A
+            case "NONE_A":
+                si = SignExc.NONE_A;
+                break;
+            case "NEG":
+                si = SignExc.NEG;
+                break;
+            case "ZERO":
+                si = SignExc.ZERO;
+                break;
+            case "POS":
+                si = SignExc.POS;
+                break;
+            case "ERR_A":
+                si = SignExc.ERR_A;
+                break;
+            case "NON_POS":
+                si = SignExc.NON_POS;
+                break;
+            case "NON_ZERO":
+                si = SignExc.NON_ZERO;
+                break;
+            case "NON_NEG":
+                si = SignExc.NON_NEG;
+                break;
+            case "Z":
+                si = SignExc.Z;
+                break;
+            case "ANY_A":
+                si = SignExc.ANY_A;
+                break;
+        }
+        return si;
+    }
+
+    public TTExc tt(String s){
+        //NONE_B, TT, FF, ERR_B, T, ANY_B
+        TTExc te = TTExc.NONE_B;
+        switch(s){
+            case "NONE_B":
+                te = TTExc.NONE_B;
+                break;
+            case "TT":
+                te = TTExc.TT;
+                break;
+            case "FF":
+                te = TTExc.FF;
+                break;
+            case "ERR_B":
+                te = TTExc.ERR_B;
+                break;
+            case "T":
+                te = TTExc.T;
+                break;
+            case "ANY_B":
+                te = TTExc.ANY_B;
+                break;
+        }
+        return te;
     }
 }
