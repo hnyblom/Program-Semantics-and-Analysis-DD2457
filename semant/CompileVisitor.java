@@ -4,12 +4,10 @@ import semant.amsyntax.*;
 import semant.whilesyntax.*;
 
 public class CompileVisitor implements WhileVisitor {
-    public int cPoint = 0;
+    public int cPoint = 1;
     
     public Code visit(Compound compound) {
         Code c = new Code();
-        compound.s1.controlPoint = setAndInc();
-        compound.s2.controlPoint = setAndInc();
         c.addAll(compound.s1.accept(this));
         c.addAll(compound.s2.accept(this));
         return c;
@@ -18,7 +16,7 @@ public class CompileVisitor implements WhileVisitor {
     public Code visit(Not not) {
         Code c = new Code();
         c.addAll(not.b.accept(this));
-        c.add(new Neg());
+        c.add(new Neg(getCP()));
         return c;
     }
     
@@ -28,15 +26,21 @@ public class CompileVisitor implements WhileVisitor {
     
     public Code visit(Assignment assignment) {
         Code c = new Code();
+        assignment.controlPoint = setAndInc();
         c.addAll(assignment.a.accept(this));
-        c.add(new Store(assignment.x.id));
+        c.add(new Store(assignment.x.id, getCP()));
         return c;
     }
     
     public Code visit(Conditional conditional) {
         Code c = new Code();
+        conditional.controlPoint = setAndInc();
         c.addAll(conditional.b.accept(this));
-        c.add(new Branch(conditional.s1.accept(this),conditional.s2.accept(this)));
+        Code c1 = conditional.s1.accept(this);
+        Code c2 = conditional.s2.accept(this);
+        int s1 = c1.size();
+        int s2 = c2.size();
+        c.add(new Branch(c1, c2, getCP()-(s1+s2)));
         return c;
     }
     
@@ -44,7 +48,7 @@ public class CompileVisitor implements WhileVisitor {
         Code c = new Code();
         c.addAll(equals.a2.accept(this));
         c.addAll(equals.a1.accept(this));
-        c.add(new Eq());
+        c.add(new Eq(getCP()));
         return c;
     }
 
@@ -58,7 +62,7 @@ public class CompileVisitor implements WhileVisitor {
         Code c = new Code();
         c.addAll(lessthaneq.a2.accept(this));
         c.addAll(lessthaneq.a1.accept(this));
-        c.add(new Le());
+        c.add(new Le(getCP()));
         return c;
     }
 
@@ -66,13 +70,13 @@ public class CompileVisitor implements WhileVisitor {
         Code c = new Code();
         c.addAll(minus.a2.accept(this));
         c.addAll(minus.a1.accept(this));
-        c.add(new Sub());
+        c.add(new Sub(getCP()));
         return c;
     }
 
     public Code visit(Num num) {
         Code c = new Code();
-        c.add(new Push(num.n));
+        c.add(new Push(num.n, getCP()));
         return c;
     }
     
@@ -80,13 +84,14 @@ public class CompileVisitor implements WhileVisitor {
         Code c = new Code();
         c.addAll(plus.a2.accept(this));
         c.addAll(plus.a1.accept(this));
-        c.add(new Add());
+        c.add(new Add(getCP()));
         return c;
     }
 
     public Code visit(Skip skip) {
         Code c = new Code();
-        c.add(new Noop());
+        skip.controlPoint = setAndInc();
+        c.add(new Noop(getCP()));
         return c;
     }
 
@@ -94,31 +99,44 @@ public class CompileVisitor implements WhileVisitor {
         Code c = new Code();
         c.addAll(times.a2.accept(this));
         c.addAll(times.a1.accept(this));
-        c.add(new Mult());
+        c.add(new Mult(getCP()));
         return c;
     }
     
     public Code visit(TrueConst t) {
         Code c = new Code();
-        c.add(new True());
+        c.add(new True(getCP()));
         return c;
     }
 
     public Code visit(Var var) {
         Code c = new Code();
-        c.add(new Fetch(var.id));
+        c.add(new Fetch(var.id, getCP()));
         return c;
     }
 
     public Code visit(While whyle) {
         Code c = new Code();
-        c.add(new Loop(whyle.b.accept(this),whyle.s.accept(this)));
+        whyle.controlPoint = setAndInc();
+        Code c1 = whyle.b.accept(this);
+        Code c2 = whyle.s.accept(this);
+        int s1 = c1.size();
+        int s2 = c2.size();
+        c.add(new Loop(c1,c2, getCP()-(s1+s2)));
         return c;
     }
     
     public Code visit(TryCatch trycatch) {
         Code c = new Code();
-        c.add(new Try(trycatch.s1.accept(this),trycatch.s2.accept(this)));
+        trycatch.controlPoint = setAndInc();
+        Code c1 = trycatch.s1.accept(this);
+        Code c2 = trycatch.s2.accept(this);
+        int s1 = c1.size();
+        int s2 = c2.size();
+        int cp = getCP();
+        int res = cp-s1;
+        //int res = getCP()-(s1+s2);
+        c.add(new Try(c1, c2, res));
         return c;
     }
     
@@ -126,12 +144,15 @@ public class CompileVisitor implements WhileVisitor {
         Code c = new Code();
         c.addAll(div.a1.accept(this));
         c.addAll(div.a2.accept(this));
-        c.add(new Div());
+        c.add(new Div(getCP()));
         return c;
     }
 
     public int setAndInc(){
         cPoint++;
+        return cPoint-1;
+    }
+    public int getCP(){
         return cPoint-1;
     }
 }

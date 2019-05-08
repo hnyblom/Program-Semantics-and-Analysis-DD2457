@@ -2,8 +2,9 @@ package semant.amsyntax;
 
 public class Div extends Inst {
 
-    public Div() {
+    public Div(int cp) {
         super(Opcode.DIV);
+        this.stmControlPoint = cp;
     }
 
 }

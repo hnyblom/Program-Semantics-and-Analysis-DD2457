@@ -1,3 +1,4 @@
+/*
 package semant;
 
 import semant.amsyntax.*;
@@ -371,3 +372,4 @@ public class AM {
 
     }
 }
+*/

@@ -1,0 +1,7 @@
+x := 7; 
+x := x - 7; 
+x := 7 / x;
+y := 0;
+y := y - 1;
+if x = y then x:= x+7 else (skip);
+z := 1
