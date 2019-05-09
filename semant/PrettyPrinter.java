@@ -3,6 +3,8 @@ package semant;
 import semant.amsyntax.Code;
 import semant.whilesyntax.*;
 
+import java.util.HashMap;
+
 public class PrettyPrinter implements WhileVisitor {
     
     String i = "";
@@ -15,7 +17,12 @@ public class PrettyPrinter implements WhileVisitor {
     }
     
     public Code visit(Assignment assignment) {
-        System.out.println();
+        HashMap<Integer, String[]> evals = Main.confs.get(0).evaluations;
+        int cPoint = assignment.controlPoint;
+        if(evals.containsKey(cPoint)){
+            String[] strings = evals.get(cPoint);
+            System.out.println("\n{ "+strings[0]+" = "+strings[1]+" } rhs: "+strings[2]);
+        }
         System.out.print(i);
         assignment.x.accept(this);
         System.out.print(" := ");

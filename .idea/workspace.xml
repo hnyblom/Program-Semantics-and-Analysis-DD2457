@@ -2,54 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b906698c-fa60-4e3c-8a56-bb64026d5c15" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/semant/Configuration.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/lab1/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/AM$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/AM.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/AMAbs$1.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/AMAbs$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/AMAbs.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/AMAbs.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/CompileVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/Main.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Add.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Add.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Branch.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Branch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Catch.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Catch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Div.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Div.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Eq.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Eq.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Fetch.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Fetch.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Inst.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Inst.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Le.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Le.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Loop.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Loop.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Mult.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Mult.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Neg.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Neg.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Noop.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Noop.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Push.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Push.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Store.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Store.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Sub.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Sub.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/True.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/True.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Try.class" afterPath="$PROJECT_DIR$/out/production/lab1/semant/amsyntax/Try.class" />
-      <change beforePath="$PROJECT_DIR$/semant/AM.java" afterPath="$PROJECT_DIR$/semant/AM.java" />
       <change beforePath="$PROJECT_DIR$/semant/AMAbs.java" afterPath="$PROJECT_DIR$/semant/AMAbs.java" />
-      <change beforePath="$PROJECT_DIR$/semant/CompileVisitor.java" afterPath="$PROJECT_DIR$/semant/CompileVisitor.java" />
+      <change beforePath="$PROJECT_DIR$/semant/Configuration.java" afterPath="$PROJECT_DIR$/semant/Configuration.java" />
       <change beforePath="$PROJECT_DIR$/semant/Main.java" afterPath="$PROJECT_DIR$/semant/Main.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Add.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Add.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Branch.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Branch.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Catch.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Catch.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Div.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Div.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Eq.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Eq.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Fetch.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Fetch.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Inst.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Inst.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Le.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Le.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Loop.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Loop.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Mult.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Mult.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Neg.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Neg.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Noop.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Noop.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Push.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Push.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Store.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Store.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Sub.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Sub.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/True.java" afterPath="$PROJECT_DIR$/semant/amsyntax/True.java" />
-      <change beforePath="$PROJECT_DIR$/semant/amsyntax/Try.java" afterPath="$PROJECT_DIR$/semant/amsyntax/Try.java" />
-      <change beforePath="$PROJECT_DIR$/semant/whilesyntax/Stm.java" afterPath="$PROJECT_DIR$/semant/whilesyntax/Stm.java" />
+      <change beforePath="$PROJECT_DIR$/semant/PrettyPrinter.java" afterPath="$PROJECT_DIR$/semant/PrettyPrinter.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,21 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AMAbs.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/semant/AMAbs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="377" column="45" lean-forward="true" selection-start-line="377" selection-start-column="45" selection-end-line="377" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semant/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="391">
+              <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,12 +33,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TTExcLattice.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/semant/signexc/TTExcLattice.java">
+      <file leaf-file-name="CompileVisitor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/semant/CompileVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="2295">
+              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding>
+                <element signature="e#4002#4003#0" expanded="true" />
+                <element signature="e#4033#4034#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,15 +66,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompileVisitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/semant/CompileVisitor.java">
+      <file leaf-file-name="SignExcOps.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/semant/signexc/SignExcOps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-              <folding>
-                <element signature="e#4002#4003#0" expanded="true" />
-                <element signature="e#4033#4034#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="352">
+              <caret line="62" column="19" lean-forward="false" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,8 +79,8 @@
       <file leaf-file-name="PrettyPrinter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semant/PrettyPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -142,11 +89,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semant/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="34" column="66" lean-forward="false" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+            <state relative-caret-position="526">
+              <caret line="33" column="94" lean-forward="false" selection-start-line="33" selection-start-column="94" selection-end-line="33" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WhileVisitor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/semant/WhileVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,15 +118,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WhileParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/semant/WhileParser.java">
+      <file leaf-file-name="AMAbs.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/semant/AMAbs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
-              <folding>
-                <element signature="e#43060#43061#0" expanded="true" />
-                <element signature="e#43088#43089#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="22" column="265" lean-forward="false" selection-start-line="22" selection-start-column="265" selection-end-line="22" selection-end-column="265" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -204,7 +158,11 @@
       <find>any_a</find>
       <find>none_b</find>
       <find>none</find>
+      <find>inde</find>
       <find>signexco</find>
+      <find>sOps</find>
+      <find>co</find>
+      <find>conf.id</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -242,6 +200,7 @@
         <option value="$PROJECT_DIR$/semant/amsyntax/Catch.java" />
         <option value="$PROJECT_DIR$/semant/CompileVisitor.java" />
         <option value="$PROJECT_DIR$/semant/whilesyntax/Stm.java" />
+        <option value="$PROJECT_DIR$/semant/PrettyPrinter.java" />
         <option value="$PROJECT_DIR$/semant/Configuration.java" />
         <option value="$PROJECT_DIR$/semant/Main.java" />
         <option value="$PROJECT_DIR$/semant/AMAbs.java" />
@@ -249,10 +208,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="886" />
-    <option name="y" value="21" />
-    <option name="width" value="1034" />
-    <option name="height" value="976" />
+    <option name="x" value="777" />
+    <option name="y" value="32" />
+    <option name="width" value="1143" />
+    <option name="height" value="1019" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -305,7 +264,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../visualvm_142/bin/visualvm.exe" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -336,7 +295,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="semant.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="samples/any.while" />
+      <option name="PROGRAM_PARAMETERS" value="samples/trycatchsample.while" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -462,7 +421,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41001064" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.052183174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -493,20 +452,20 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10348644" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38977635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40788072" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32800853" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20979765" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41001064" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09352518" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.099612616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -525,7 +484,7 @@
           <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="79" />
+      <option name="time" value="83" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -768,7 +727,7 @@
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -786,16 +745,8 @@
         <state relative-caret-position="102">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#200#201#0" expanded="true" />
+            <element signature="e#200#201#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/semant/WhileVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -855,38 +806,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/semant/signexc/SignExcOps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="82" column="33" lean-forward="false" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/semant/signexc/TTExcLattice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10">
-          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/semant/signexc/SignExcLattice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/semant/CompileVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <element signature="e#4002#4003#0" expanded="true" />
-            <element signature="e#4033#4034#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -909,6 +833,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/semant/signexc/SignExcLattice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/semant/signexc/SignExcOps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="62" column="19" lean-forward="false" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/semant/whilesyntax/Stm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -917,28 +857,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/semant/PrettyPrinter.java">
+    <entry file="file://$PROJECT_DIR$/semant/CompileVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+        <state relative-caret-position="2295">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding>
+            <element signature="e#4002#4003#0" expanded="true" />
+            <element signature="e#4033#4034#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/semant/WhileVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/semant/Configuration.java">
+    <entry file="file://$PROJECT_DIR$/semant/PrettyPrinter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state relative-caret-position="187">
+          <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/semant/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="33" column="94" lean-forward="false" selection-start-line="33" selection-start-column="94" selection-end-line="33" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/semant/Main.java">
+    <entry file="file://$PROJECT_DIR$/semant/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="34" column="66" lean-forward="false" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+        <state relative-caret-position="391">
+          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -947,8 +906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/semant/AMAbs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="377" column="45" lean-forward="true" selection-start-line="377" selection-start-column="45" selection-end-line="377" selection-end-column="45" />
+        <state relative-caret-position="170">
+          <caret line="22" column="265" lean-forward="false" selection-start-line="22" selection-start-column="265" selection-end-line="22" selection-end-column="265" />
           <folding />
         </state>
       </provider>

@@ -6,16 +6,13 @@ import semant.signexc.*;
 import semant.whilesyntax.Compound;
 import semant.whilesyntax.Stm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static CompileVisitor cv = new CompileVisitor();
     private static HashMap<String, String> state = new HashMap<>();
     private static Stack<String> sstack = new Stack<>();
-    private static HashMap<Integer, Configuration> confs = new HashMap();
+    public static HashMap<Integer, Configuration> confs = new HashMap();
 
 
     public static void main(String[] args) throws Exception {
@@ -32,10 +29,13 @@ public class Main {
         }
         //System.out.println("code: "+c);
         AMAbs amAbs = new AMAbs();
-        Configuration conf = new Configuration(c, sstack, state, 0);
+        HashMap<Integer, String[]> evaluations = new HashMap<>();
+        LinkedList<Configuration> neighbours = new LinkedList<>();
+        Configuration conf = new Configuration(c, sstack, state, 0, evaluations, 1, neighbours);
         confs = amAbs.execute(conf, confs);
+        //TODO: compute lubs only at assignments or branches
+        //Calculate lubs
         if(confs.size()>1){
-            //Calculate lubs
             Configuration[] arr = new Configuration[confs.values().size()];
             confs.values().toArray(arr);
             //Go through every Configuration except the first

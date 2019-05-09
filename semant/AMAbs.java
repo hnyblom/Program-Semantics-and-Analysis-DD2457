@@ -9,10 +9,7 @@ import semant.whilesyntax.Divide;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 public class AMAbs {
    // private int j = 0;
@@ -23,7 +20,7 @@ public class AMAbs {
     private boolean printSteps = false;
     public HashMap<Integer, Configuration> execute(Configuration config, HashMap<Integer,Configuration> configs) throws IOException {
         int j = 0;
-        Configuration newC = new Configuration((Code)config.code.clone(),(Stack)config.stack.clone(),(HashMap<String,String>)config.state.clone(), configs.size());
+        Configuration newC = new Configuration((Code)config.code.clone(),(Stack)config.stack.clone(),(HashMap<String,String>)config.state.clone(), configs.size(), (HashMap<Integer,String[]>)config.evaluations.clone(), config.controlPoint, (LinkedList<Configuration>) config.neighbours.clone());
         configs.put(configs.size(),newC);
         Configuration conf = configs.get(configs.size()-1);
         whileLoop:
@@ -51,6 +48,7 @@ public class AMAbs {
                     printStep(conf, j);
                     if(!exceptional){
                         val = conf.stack.pop();
+                        //Check of the value is of type boolean or not
                         b = boolSign(val);
                         if(b){
                             ttVal = tt(val);
@@ -59,11 +57,35 @@ public class AMAbs {
                         }
                         Store s = (Store)inst;
                         if(signVal1 != SignExc.ERR_A){
+                            //Compose the list specifying a evaluation at a certain controlpoint
+                            String[] cpVals = new String[3];
+                            cpVals[0] = s.x;
+                            boolean contained = false;
+                            //Find possible previous assignment to variable
+                            if(conf.evaluations.size()>0) {
+                                for(int k = s.stmControlPoint-1; k>0;k--){
+                                    HashMap<Integer,String[]> testmap = conf.evaluations;
+                                    if (testmap.containsKey(k)) {
+                                        String[] stest = testmap.get(k);
+                                        String strtest = stest[0];
+                                        if (conf.evaluations.get(k)[0].equals(s.x)) {
+                                            cpVals[1] = conf.evaluations.get(k)[2];
+                                            contained = true;
+                                        }
+                                    }
+                                }
+                            }
+                            if(!contained){
+                                cpVals[1]="Z";
+                            }
                             if(b){
                                 conf.state.put(s.x,ttVal.toString());
+                                cpVals[2] = ttVal.toString();
                             }else{
                                 conf.state.put(s.x,signVal1.toString());
+                                cpVals[2] = signVal1.toString();
                             }
+                            conf.evaluations.put(s.stmControlPoint, cpVals);
                             stateCount += "´";
                         }else{
                             exceptional=true;
